@@ -45,7 +45,63 @@ public class Generator {
         }
     }
 
+     public static void eo(int maxE) {
+        // choose any type of loop
+        int printOut = 1;
+        int storage;
+        String letter = "E";
+        for (int i = maxE; i > 0; i--) {
+            storage = printOut;
+            if (i % 2 == 1) {
+                letter = "E";
+            } else {
+                letter = "O";
+            }
+            do {
+                System.out.print(letter);
+                storage--;
+            } while (storage > 0);
+            System.out.println("");
+            printOut += 1;
+        }
+        printOut -= 2;
+        maxE--;
+        for (int i = maxE; i > 0; i--) {
+            storage = printOut;
+            if (i % 2 == 1) {
+                letter = "E";
+            } else {
+                letter = "O";
+            }
+            do {
+                System.out.print(letter);
+                storage--;
+            } while (storage > 0);
+            System.out.println("");
+            printOut -= 1;
+        }
+    }
     
+        public static void pyramid(int rows) {
+        // choose any type of loop
+        int num = 1;
+        int counts = rows * 2 - 1;
+        while (rows > 0) {
+            counts = rows * 2 - 1;
+            int spaces = num-1;
+            while(spaces > 0){
+                System.out.print(" ");
+                spaces--;
+            }
+            do {
+                System.out.print(num);
+                counts--;
+            }while(counts > 0);
+            System.out.println("");
+            num++;
+            rows--;
+        }
+    }
     
     public static void main(String[]args) {
         stars(7);
