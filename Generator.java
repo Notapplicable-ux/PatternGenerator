@@ -6,12 +6,13 @@ public class Generator {
     public static void stars(int rows) {
         String star = "*";
         while (rows > 0) {
-            System.out.println(star);
+            System.out.print(star);
             rows--;
-            System.out.println("*");
+            System.out.println("");
             star += "**";
         }
     }
+
 
     public static void triangle(int rows) {
         int num = 1;
@@ -28,49 +29,29 @@ public class Generator {
     }
 
     public static void odds(int start) {
-        for (int i = start; i >= 1; i--) {
-            if (i % 2 != 0) {
-                for (int j = 0; j < i; j++) {
+        // for loop
+        int counts = start;
+        int num = start;
+        for (int i = start; i > 0; i--) {
+            counts = num;
+            if (i % 2 == 1) {
+                do {
                     System.out.print(i);
-                }
-                System.out.println(); 
+                    counts--;
+                } while (counts > 0);
+                System.out.println("");
             }
+            num--;
         }
     }
 
-    public static void eo(int maxE) {
-
-        char startChar = (maxE % 2 == 0) ? 'O' : 'E';
-        for (int i = 1; i <= maxE; i++) {
-            char currentChar = (i % 2 != 0) ? startChar : (startChar == 'O' ? 'E' : 'O');
-            for (int j = 0; j < i; j++) {
-                System.out.print(currentChar);
-            }
-            System.out.println();
-        }
-        
-        for (int i = maxE - 1; i >= 1; i--) {
-            char currentChar = (i % 2 != 0) ? startChar : (startChar == 'O' ? 'E' : 'O');
-            for (int j = 0; j < i; j++) {
-                System.out.print(currentChar);
-            }
-            System.out.println();
+    
+    
+    public static void main(String[]args) {
+        stars(7);
+        //triangle(9);
+        //odds(9);
+        //eo(5);
+        //pyramid(5);
         }
     }
-
-    public static void pyramid(int rows) {
-        for (int i = 1; i <= rows; i++) { 
-            int numToPrint = i;
-            int numTimes = 2 * (rows - i) + 1; 
-
-            for (int j = 0; j < numTimes; j++) {
-                System.out.print(numToPrint);
-            }
-            System.out.println(); 
-        }
-    }
-    public static void main() {
-        
-    }
-}
-
