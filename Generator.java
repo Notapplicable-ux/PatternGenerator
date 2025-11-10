@@ -27,30 +27,50 @@ public class Generator {
         }
     }
 
-    public static void odds(int rows) {
-        int counts = rows;
-        int num = rows;
-        for (int i = rows; i > 0; i--) {
-            counts = num;
-            if (i % 2 == 1) {
-                do {
-                    System.out.println(i);
-                    counts--;
-                } while (counts > 0);
-                {
-
-                    System.out.println("");
+    public static void odds(int start) {
+        for (int i = start; i >= 1; i--) {
+            if (i % 2 != 0) {
+                for (int j = 0; j < i; j++) {
+                    System.out.print(i);
                 }
-                num--;
+                System.out.println(); 
             }
         }
     }
 
-    public static void eo(int rows) {
+    public static void eo(int maxE) {
 
+        char startChar = (maxE % 2 == 0) ? 'O' : 'E';
+        for (int i = 1; i <= maxE; i++) {
+            char currentChar = (i % 2 != 0) ? startChar : (startChar == 'O' ? 'E' : 'O');
+            for (int j = 0; j < i; j++) {
+                System.out.print(currentChar);
+            }
+            System.out.println();
+        }
+        
+        for (int i = maxE - 1; i >= 1; i--) {
+            char currentChar = (i % 2 != 0) ? startChar : (startChar == 'O' ? 'E' : 'O');
+            for (int j = 0; j < i; j++) {
+                System.out.print(currentChar);
+            }
+            System.out.println();
+        }
     }
 
     public static void pyramid(int rows) {
+        for (int i = 1; i <= rows; i++) { 
+            int numToPrint = i;
+            int numTimes = 2 * (rows - i) + 1; 
 
+            for (int j = 0; j < numTimes; j++) {
+                System.out.print(numToPrint);
+            }
+            System.out.println(); 
+        }
+    }
+    public static void main() {
+        
     }
 }
+
